@@ -75,6 +75,7 @@ def search():
 #app.route('/analyze', methods=['POST'])
 @app.route('/analyze', methods=['POST'])
 @app.route('/analyze', methods=['POST'])
+@app.route('/analyze', methods=['POST'])
 def analyze():
     text = request.form.get('text', '')
     image = request.files.get('image')
@@ -85,6 +86,8 @@ def analyze():
     key_phrases = "None"
     entities = "None"
     image_text = ""
+    image_sentiment = "Unknown"
+    image_language = "Unknown"
     input_audio_filename = "input_text.wav"
     result_audio_filename = "result_text.wav"
 
@@ -104,6 +107,15 @@ def analyze():
             entities = ", ".join([entity.text for entity in entities_response.entities])
         except HttpResponseError as e:
             print(f"Text analytics error: {e}")
+
+        # Synthesize speech from input text
+        try:
+            input_audio_filepath = os.path.join("static", input_audio_filename)
+            input_audio_output = AudioConfig(filename=input_audio_filepath)
+            input_synthesizer = SpeechSynthesizer(speech_config=speech_config, audio_config=input_audio_output)
+            input_synthesizer.speak_text_async(text).get()
+        except Exception as e:
+            print(f"Error synthesizing input text: {e}")
 
     # Analyze image (extract text)
     if image:
@@ -149,18 +161,10 @@ def analyze():
             image_text = "Unable to analyze text from the image."
             print(f"Vision analysis error: {e}")
 
-    # Synthesize speech from input text
-    if text:
-        try:
-            input_audio_filepath = os.path.join("static", input_audio_filename)
-            input_audio_output = AudioConfig(filename=input_audio_filepath)
-            input_synthesizer = SpeechSynthesizer(speech_config=speech_config, audio_config=input_audio_output)
-            input_synthesizer.speak_text_async(text).get()
-        except Exception as e:
-            print(f"Error synthesizing input text: {e}")
-
-    # Synthesize speech from analysis result
+    # Combine the analysis results into a result text
     result_text = f"Sentiment: {sentiment}. Language: {language}. Key Phrases: {key_phrases}. Entities: {entities}. {image_text}"
+    
+    # Synthesize speech from analysis result
     try:
         result_audio_filepath = os.path.join("static", result_audio_filename)
         result_audio_output = AudioConfig(filename=result_audio_filepath)
@@ -178,6 +182,7 @@ def analyze():
                            image_sentiment=image_sentiment,
                            input_audio_filename=input_audio_filename,
                            result_audio_filename=result_audio_filename)
+
 
 
 
