@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentimental Review</title>
+    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        function toggleInputFields() {
+            const textOption = document.getElementById('textOption').checked;
+            const imageOption = document.getElementById('imageOption').checked;
+            const bothOption = document.getElementById('bothOption').checked;
+            document.getElementById('textInput').style.display = textOption || bothOption ? 'block' : 'none';
+            document.getElementById('imageInput').style.display = imageOption || bothOption ? 'block' : 'none';
+            document.getElementById('imageContainer').style.display = imageOption || bothOption ? 'block' : 'none';
+            document.getElementById('microphoneInput').style.display = textOption || bothOption ? 'block' : 'none';
+        }
+
+        function detachImage() {
+            document.getElementById('uploadedImage').src = '';
+            document.getElementById('image').value = '';
+        }
+    </script>
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            border: none;
+            background-color: #f8f9fa;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            padding: 20px;
+        }
+
+        .card label {
+            color: #343a40;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0069d9;
+        }
+
+        #imageContainer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .detach-btn {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            margin-top: 10px;
+        }
+
+        .detach-btn:hover {
+            background-color: #c82333;
+        }
+
+        /* Custom styles for form inputs */
+        .form-check-input:checked + .form-check-label:before {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .form-check-input:checked + .form-check-label:after {
+            background-color: #fff;
+        }
+
+        .form-check-input:checked:hover + .form-check-label:before {
+            background-color: #0069d9;
+            border-color: #0069d9;
+        }
+
+        .form-control {
+            border-color: #ced4da;
+            border-radius: 0.25rem;
+            color: #495057;
+            background-color: #fff;
+        }
+
+        .form-control:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .form-control-file {
+            border-color: #ced4da;
+        }
+
+        .form-control-file:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: #343a40;"><i class="fas fa-chart-line"></i> Sentimental Analysis</h1>
+        <form action="{{ url_for('analyze') }}" method="post" enctype="multipart/form-data">
+            <div class="card mb-3 p-4 rounded-lg">
+                <div>
+                    <div class="font-weight-bold mb-3" style="color: #343a40;">Choose Analysis Type</div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="analysisType" id="textOption" value="text" onclick="toggleInputFields()" required>
+                        <label class="form-check-label" for="textOption" style="color: #343a40;"><i class="fas fa-font"></i> Text</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="analysisType" id="imageOption" value="image" onclick="toggleInputFields()">
+                        <label class="form-check-label" for="imageOption" style="color: #343a40;"><i class="fas fa-image"></i> Image</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="analysisType" id="bothOption" value="both" onclick="toggleInputFields()">
+                        <label class="form-check-label" for="bothOption" style="color: #343a40;"><i class="fas fa-layer-group"></i> Both</label>
+                    </div>
+                </div>
+            </div>
+            <div id="imageContainer" style="display:none;">
+                <img id="uploadedImage" src="" alt="Analysis Image" class="rounded-lg" style="max-width: 300px;">
+                <button type="button" class="btn detach-btn mt-2" onclick="detachImage()">Detach Image</button>
+            </div>
+            <div id="textInput" style="display:none;">
+                <div class="form-group">
+                    <label for="text" style="color: #343a40;">Enter Text:</label>
+                    <textarea class="form-control" id="text" name="text" rows="4" cols="50"></textarea>
+                </div>
+            </div>
+            <div id="microphoneInput" style="display:none;">
+                <div class="form-group">
+                    <label for="microphone" style="color: #343a40;"><i class="fas fa-microphone"></i> Microphone Input:</label>
+                    <button type="button" class="btn btn-primary" onclick="startRecording()">Start Recording</button>
+                    <button type="button" class="btn btn-secondary" onclick="stopRecording()" disabled>Stop Recording</button>
+                </div>
+            </div>
+            <div id="imageInput" style="display:none;">
+                <div class="form-group">
+                    <label for="image" style="color: #343a40;">Upload Image:</label>
+                    <input type="file" class="form-control-file" id="image" name="image" accept="image/*" onchange="document.getElementById('uploadedImage').src = window.URL.createObjectURL(this.files[0])">
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Analyze</button>
+            </div>
+        </form>
+    </div>
+    <!-- Add your other content here -->
+</body>
+    <!-- Add your other content here -->
+</body>
+</html>

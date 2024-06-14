@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Results</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+    <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Smart Review System</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Custom Google font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+    <body class="d-flex flex-column h-100 bg-light">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Smart Review System</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('resume') }}">Courses</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('projects') }}">Reviews</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+    <style>
+        /* Remove default margin and padding */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style the container */
+        .container {
+            max-width: 960px; /* Adjust as needed */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Style the card */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Style headings */
+        h1, h2 {
+            color: #333;
+        }
+
+        /* Style the audio controls */
+        audio {
+            width: 100%;
+            max-width: 300px; /* Adjust as needed */
+        }
+
+        /* Style the Go Back button */
+        .go-back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4C1D95;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .go-back-btn:hover {
+            background-color: #6D28D9;
+        }
+
+    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-semibold text-center mb-8">Analysis Results</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="card bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Sentiment</h2>
+                <p>{{ sentiment }}</p>
+            </div>
+            <div class="card bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Language</h2>
+                <p>{{ language }}</p>
+            </div>
+            <div class="card bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Key Phrases</h2>
+                <p>{{ key_phrases }}</p>
+            </div>
+            <div class="card bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Entities</h2>
+                <p>{{ entities }}</p>
+            </div>
+            <div class="card bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Extracted Text from Image</h2>
+                <p>{{ image_text }}</p>
+            </div>
+        </div>
+        <div class="audio-group mt-8">
+            <div class="card bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Audio Outputs</h2>
+                <div class="flex flex-col items-center">
+                    <audio controls class="mb-4">
+                        <source src="{{ url_for('static_files', filename=input_audio_filename) }}" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <audio controls>
+                        <source src="{{ url_for('static_files', filename=result_audio_filename) }}" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-8">
+            <a href="{{ url_for('home') }}" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-300">Go Back</a>
+        </div>
+    </div>
+    <section class="bg-light py-5">
+        <div class="container px-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-xxl-8">
+                    <div class="text-center my-5">
+                        <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">About Me</span></h2>
+                        <p class="lead fw-light mb-4">My name is Sandeep Gudisa.</p>
+                        <p class="text-muted">I am passionate about developing innovative AI applications that solve real-world problems and enhance user experiences. My enthusiasm for artificial intelligence drives me to explore new technologies and methodologies to create intelligent, efficient, and impactful solutions</p>
+                        <div class="d-flex justify-content-center fs-2 gap-4">
+                            <a class="text-gradient" href="#!"><i class="bi bi-twitter"></i></a>
+                            <a class="text-gradient" href="#!"><i class="bi bi-linkedin"></i></a>
+                            <a class="text-gradient" href="#!"><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+    <footer class="bg-white py-4 mt-auto">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto"><div class="small m-0">Copyright</div></div>
+                <div class="col-auto">
+                    <a class="small" href="#!">Privacy</a>
+                    <span class="mx-1">&middot;</span>
+                    <a class="small" href="#!">Terms</a>
+                    <span class="mx-1">&middot;</span>
+                    <a class="small" href="#!">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <section class="py-5 bg-gradient-primary-to-secondary text-white">
+        <div class="container px-5 my-5">
+            <div class="text-center">
+                <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
+                <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="contact.html">Contact me</a>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+</html>

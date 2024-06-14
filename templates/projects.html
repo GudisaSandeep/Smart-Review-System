@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Smart Review System</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+        <!-- Custom Google font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+    <body class="d-flex flex-column h-100 bg-light">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Smart Review System</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('resume') }}">Courses</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('projects') }}">Reviews</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <section class="py-5">
+                <div class="container px-5 mb-5">
+                    <div class="text-center mb-5">
+                        <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Reviews</span></h1>
+                    </div>
+                    <div class="row gx-5 justify-content-center">
+                        <!-- Course 1 -->
+                        <div class="col-lg-11 col-xl-9 col-xxl-8">
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5" >
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="p-5">
+                                            <h2 class="fw-bolder">Introduction to Python Programming</h2>
+                                            <p>This course provides a comprehensive introduction to Python programming language, covering basic syntax, data types, control structures, and functions. Whether you're a complete beginner or want to refresh your Python skills, this course is perfect for you.</p>
+                                            <a href="https://www.learnpython.org/" class="btn btn-primary">Learn More</a>
+                                            <div class="mt-4">
+                                                <h4>Student Feedback</h4>
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-positive" role="progressbar" style="width: 80%" id="positiveBar1">Positive 80%</div>
+                                                </div>
+                                                <div class="progress mt-2">
+                                                    <div class="progress-bar progress-bar-negative" role="progressbar" style="width: 10%" id="negativeBar1">Negative 10%</div>
+                                                </div>
+                                                <div class="progress mt-2">
+                                                    <div class="progress-bar progress-bar-neutral" role="progressbar" style="width: 10%" id="neutralBar1">Neutral 10%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img class="img-fluid" src="static/assets/Social Network for Programmers and Developers.jpeg" alt="Course Image" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                                    <!-- Course 3 -->
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-center">
+                            <div class="p-5">
+                                <h2 class="fw-bolder">Web Development Bootcamp</h2>
+                                <p>This intensive bootcamp covers full-stack web development, including HTML, CSS, JavaScript, Node.js, and databases. Get hands-on experience building dynamic web applications and kickstart your career in web development.</p>
+                                <a href="templates/web_development.html" class="btn btn-primary">Learn More</a>
+                                <div class="mt-4">
+                                    <h4>Student Feedback</h4>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-positive" role="progressbar" style="width: 90%" id="positiveBar3">Positive 90%</div>
+                                    </div>
+                                    <div class="progress mt-2">
+                                        <div class="progress-bar progress-bar-negative" role="progressbar" style="width: 5%" id="negativeBar3">Negative 5%</div>
+                                    </div>
+                                    <div class="progress mt-2">
+                                        <div class="progress-bar progress-bar-neutral" role="progressbar" style="width: 5%" id="neutralBar3">Neutral 5%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="static/assets/Premium Photo _ Developing programming and coding technologies with website design in virtual diagram.jpeg" alt="Course Image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 4 -->
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-center">
+                            <div class="p-5">
+                                <h2 class="fw-bolder">Data Science Essentials</h2>
+                                <p>This course provides essential skills and knowledge in data science, including data analysis, visualization, machine learning algorithms, and model evaluation. Dive into real-world datasets and learn to extract valuable insights.</p>
+                                <a href="templates/data_science.html" class="btn btn-primary">Learn More</a>
+                                <div class="mt-4">
+                                    <h4>Student Feedback</h4>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-positive" role="progressbar" style="width: 85%" id="positiveBar4">Positive 85%</div>
+                                    </div>
+                                    <div class="progress mt-2">
+                                        <div class="progress-bar progress-bar-negative" role="progressbar" style="width: 10%" id="negativeBar4">Negative 10%</div>
+                                    </div>
+                                    <div class="progress mt-2">
+                                        <div class="progress-bar progress-bar-neutral" role="progressbar" style="width: 5%" id="neutralBar4">Neutral 5%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="static/assets/DATA SCIENCE COURSE IN PUNE.jpeg" alt="Course Image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 5 -->
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-center">
+                            <div class="p-5">
+                                <h2 class="fw-bolder">Artificial Intelligence Fundamentals</h2>
+                                <p>Explore the fascinating world of artificial intelligence, covering topics such as neural networks, deep learning, natural language processing, and computer vision. Gain insights into cutting-edge AI applications and technologies.</p>
+                                <a href="templates/ai_fundamentals.html" class="btn btn-primary">Learn More</a>
+                                <div class="mt-4">
+                                    <h4>Student Feedback</h4>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-positive" role="progressbar" style="width: 70%" id="positiveBar5">Positive 70%</div>
+                                    </div>
+                                    <div class="progress mt-2">
+                                        <div class="progress-bar progress-bar-negative" role="progressbar" style="width: 20%" id="negativeBar5">Negative 20%</div>
+                                    </div>
+                                    <div class="progress mt-2">
+                                        <div class="progress-bar progress-bar-neutral" role="progressbar" style="width: 10%" id="neutralBar5">Neutral 10%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="static/assets/AI.jpeg" alt="Course Image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 6 -->
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-center">
+                            <div class="p-5">
+                                <h2 class="fw-bolder">Cybersecurity Essentials</h2>
+                                <p>This course covers essential concepts and techniques in cybersecurity, including network security, cryptography, ethical hacking, and risk management. Learn to protect systems and data from cyber threats.</p>
+                                <a href="templates/cybersecurity.html" class="btn btn-primary">Learn More</a>
+                                <div class="mt-4">
+                                    <h4>Student Feedback</h4>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-positive" role="progressbar" style="width: 75%" id="positiveBar6">Positive 75%</div>
+                                    </div>
+                                    <div class="progress mt-2">
+                                        <div class="progress-bar progress-bar-negative" role="progressbar" style="width: 15%" id="negativeBar6">Negative 15%</div>
+                                    </div>
+                                    <div class="progress mt-2">
+                                        <div class="progress-bar progress-bar-neutral" role="progressbar" style="width: 10%" id="neutralBar6">Neutral 10%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="static/assets/cybersecurity.jpeg" alt="Course Image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 7 -->
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-center">
+                            <div class="p-5">
+                                <h2 class="fw-bolder">Mobile App Development with React Native</h2>
+                                <p>This course teaches you how to build mobile applications using React Native, a popular framework for cross-platform development. Learn to create responsive and feature-rich apps for iOS and Android.</p>
+                                <a href="templates/react_native.html" class="btn btn-primary">Learn More</a>
+                                <div class="mt-4">
+                                    <h4>Student Feedback</h4>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-positive" role="progressbar" style="width: 85%" id="positiveBar7">Positive 85%</div>
+                                    </div>
+                                    <div class="progress mt-2">
+                                        <div class="progress-bar progress-bar-negative" role="progressbar" style="width: 10%" id="negativeBar7">Negative 10%</div>
+                                    </div>
+                                    <div class="progress mt-2">
+                                        <div class="progress-bar progress-bar-neutral" role="progressbar" style="width: 5%" id="neutralBar7">Neutral 5%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="static/assets/Mobile App.jpeg" alt="Course Image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 8 -->
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-center">
+                            <div class="p-5">
+                                <h2 class="fw-bolder">Blockchain Fundamentals</h2>
+                                <p>This course introduces you to the fundamental concepts of blockchain technology, including decentralized networks, smart contracts, and cryptocurrencies. Gain insights into the potential applications and implications of blockchain.</p>
+                                <a href="templates/blockchain.html" class="btn btn-primary">Learn More</a>
+                                <div class="mt-4">
+                                    <h4>Student Feedback</h4>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-positive" role="progressbar" style="width: 70%" id="positiveBar8">Positive 70%</div>
+                                    </div>
+                                    <div class="progress mt-2">
+                                        <div class="progress-bar progress-bar-negative" role="progressbar" style="width: 20%" id="negativeBar8">Negative 20%</div>
+                                    </div>
+                                    <div class="progress mt-2">
+                                        <div class="progress-bar progress-bar-neutral" role="progressbar" style="width: 10%" id="neutralBar8">Neutral 10%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="static/assets/blockchain.jpeg" alt="Course Image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 9 -->
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-center">
+                            <div class="p-5">
+                                <h2 class="fw-bolder">UI/UX Design Fundamentals</h2>
+                                <p>This course explores the principles of user interface (UI) and user experience (UX) design, covering topics such as wireframing, prototyping, and usability testing. Learn to create engaging and intuitive digital experiences.</p>
+                                <a href="templates/ui_ux_design.html" class="btn btn-primary">Learn More</a>
+                                <div class="mt-4">
+                                    <h4>Student Feedback</h4>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-positive" role="progressbar" style="width: 80%" id="positiveBar9">Positive 80%</div>
+                                    </div>
+                                    <div class="progress mt-2">
+                                        <div class="progress-bar progress-bar-negative" role="progressbar" style="width: 15%" id="negativeBar9">Negative 15%</div>
+                                    </div>
+                                    <div class="progress mt-2">
+                                        <div class="progress-bar progress-bar-neutral" role="progressbar" style="width: 5%" id="neutralBar9">Neutral 5%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="static/assets/UI UX Design Illustration.jpeg" alt="Course Image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 10 -->
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-center">
+                            <div class="p-5">
+                                <h2 class="fw-bolder">Cloud Computing Essentials</h2>
+                                <p>This course covers the essentials of cloud computing, including cloud deployment models, service models, and cloud providers. Learn to leverage cloud technologies for scalability, flexibility, and cost-efficiency.</p>
+                                <a href="templates/cloud_computing.html" class="btn btn-primary">Learn More</a>
+                                <div class="mt-4">
+                                    <h4>Student Feedback</h4>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-positive" role="progressbar" style="width: 75%" id="positiveBar10">Positive 75%</div>
+                                    </div>
+                                    <div class="progress mt-2">
+                                        <div class="progress-bar progress-bar-negative" role="progressbar" style="width: 15%" id="negativeBar10">Negative 15%</div>
+                                    </div>
+                                    <div class="progress mt-2">
+                                        <div class="progress-bar progress-bar-neutral" role="progressbar" style="width: 10%" id="neutralBar10">Neutral 10%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="static/assets/cloud.jpeg" alt="Course Image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                </section>
+                
+            <!-- Call to action section-->
+            
+        </main>
+        <section class="bg-light py-5">
+            <div class="container px-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-xxl-8">
+                        <div class="text-center my-5">
+                            <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">About Me</span></h2>
+                            <p class="lead fw-light mb-4">My name is Sandeep Gudisa.</p>
+                            <p class="text-muted">I am passionate about developing innovative AI applications that solve real-world problems and enhance user experiences. My enthusiasm for artificial intelligence drives me to explore new technologies and methodologies to create intelligent, efficient, and impactful solutions</p>
+                            <div class="d-flex justify-content-center fs-2 gap-4">
+                                <a class="text-gradient" href="#!"><i class="bi bi-twitter"></i></a>
+                                <a class="text-gradient" href="#!"><i class="bi bi-linkedin"></i></a>
+                                <a class="text-gradient" href="#!"><i class="bi bi-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <!-- Footer-->
+        <footer class="bg-white py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0">Copyright</div></div>
+                    <div class="col-auto">
+                        <a class="small" href="#!">Privacy</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Terms</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <section class="py-5 bg-gradient-primary-to-secondary text-white">
+            <div class="container px-5 my-5">
+                <div class="text-center">
+                    <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
+                    <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="contact.html">Contact me</a>
+                </div>
+            </div>
+        </section>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
