@@ -12,14 +12,14 @@ import time
 app = Flask(__name__)
 
 # Azure Text Analytics service credentials
-text_api_key = "ec5bf3219a7c434ca4d67a70f8c50a60"
-text_endpoint = "https://textclassification1413.cognitiveservices.azure.com/"
+text_api_key = "Enter your text_analysis api key here"
+text_endpoint = "Enter your  End point Url"
 text_credential = AzureKeyCredential(text_api_key)
 text_analytics_client = TextAnalyticsClient(endpoint=text_endpoint, credential=text_credential)
 
 # Azure Computer Vision service credentials
-vision_api_key = "43aa68acb7844192a1ab26c640ac7421"
-vision_endpoint = "https://computervision1413.cognitiveservices.azure.com/"
+vision_api_key = "Enter Your  Azure Computer Vision service Api"
+vision_endpoint = "Enter your  End point Url"
 vision_credential = AzureKeyCredential(vision_api_key)
 vision_client = ComputerVisionClient(vision_endpoint, vision_credential)
 
@@ -27,12 +27,12 @@ vision_client = ComputerVisionClient(vision_endpoint, vision_credential)
 ocr_url = vision_endpoint + "vision/v3.2/ocr"
 
 # Azure Speech service credentials
-speech_subscription_key = "1b028a3218994bf8a96189e8a63f2416"
+speech_subscription_key = "Enter Your Azure Speech service api key "
 speech_region = "centralindia"
 speech_config = SpeechConfig(subscription=speech_subscription_key, region=speech_region)
 
-subscription_key = '35d2e9121807462b83c5777f2dc1d503'
-search_url = "https://api.bing.microsoft.com/v7.0/search"
+subscription_key = 'Enter Your Azure Ai Search service api key '
+search_url = "Enter your  End point Url"
 
 
 @app.route('/')
