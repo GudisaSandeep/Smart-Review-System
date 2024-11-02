@@ -12,14 +12,14 @@ import time
 app = Flask(__name__)
 
 # Azure Text Analytics service credentials
-text_api_key = "Enter your text_analysis api key here"
-text_endpoint = "Enter your  End point Url"
+text_api_key = "AlZH384jUL2mlo40mFVUt1z7HdB56D8EVQAFosBABwkbwXQDoMJVJQQJ99AKACYeBjFXJ3w3AAAaACOG40qy"
+text_endpoint = "https://sandeepgudisa.cognitiveservices.azure.com/"
 text_credential = AzureKeyCredential(text_api_key)
 text_analytics_client = TextAnalyticsClient(endpoint=text_endpoint, credential=text_credential)
 
 # Azure Computer Vision service credentials
-vision_api_key = "Enter Your  Azure Computer Vision service Api"
-vision_endpoint = "Enter your  End point Url"
+vision_api_key = "7LUdkzsP8zpaE0tUmAtBRZNs1nanJ9YMpu0LKTDjPAtrJD73ljkzJQQJ99AKACYeBjFXJ3w3AAAFACOGA6ST"
+vision_endpoint = "https://image-sentiment-analysis.cognitiveservices.azure.com/"
 vision_credential = AzureKeyCredential(vision_api_key)
 vision_client = ComputerVisionClient(vision_endpoint, vision_credential)
 
@@ -27,12 +27,12 @@ vision_client = ComputerVisionClient(vision_endpoint, vision_credential)
 ocr_url = vision_endpoint + "vision/v3.2/ocr"
 
 # Azure Speech service credentials
-speech_subscription_key = "Enter Your Azure Speech service api key "
+speech_subscription_key = "6n5VL685YnwxwqAqfzWP16tiOSykupvPvGHd3Uvdzov3FUYmjUjsJQQJ99AKACYeBjFXJ3w3AAAYACOGRkwT "
 speech_region = "centralindia"
 speech_config = SpeechConfig(subscription=speech_subscription_key, region=speech_region)
 
-subscription_key = 'Enter Your Azure Ai Search service api key '
-search_url = "Enter your  End point Url"
+subscription_key = '58d73c64cda2430da5ab3e89dd76cefb'
+search_url = "https://api.bing.microsoft.com/v7.0/search"
 
 
 @app.route('/')
