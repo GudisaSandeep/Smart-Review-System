@@ -28,7 +28,7 @@ ocr_url = vision_endpoint + "vision/v3.2/ocr"
 
 # Azure Speech service credentials
 speech_subscription_key = "6n5VL685YnwxwqAqfzWP16tiOSykupvPvGHd3Uvdzov3FUYmjUjsJQQJ99AKACYeBjFXJ3w3AAAYACOGRkwT "
-speech_region = "centralindia"
+speech_region = "eastus"
 speech_config = SpeechConfig(subscription=speech_subscription_key, region=speech_region)
 
 subscription_key = '58d73c64cda2430da5ab3e89dd76cefb'
